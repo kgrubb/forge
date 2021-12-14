@@ -1,6 +1,6 @@
 FROM eclipse-temurin:11-jdk-focal
 
-ENV INSTALLER="forge-1.16.5-36.2.0-installer.jar"
+ENV INSTALLER="forge-1.16.5-36.2.20-installer.jar"
 
 COPY ./1.16/"$INSTALLER" /
 
@@ -12,4 +12,4 @@ COPY 1.16/src /forge
 
 WORKDIR /forge
 
-CMD [ "java","-server", "-Xmx4G", "-jar", "forge-1.16.5-36.2.0.jar", "nogui"]
+CMD [ "java","-server", "-Xmx4G", "-jar", "forge-1.16.5-36.2.20.jar", "nogui"]
