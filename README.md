@@ -24,16 +24,16 @@ docker build -t forge:1.16 -f 1.16.Dockerfile .
 
 Run:
 ```sh
-docker run -p 25565:25565 -p 24454:24454/udp -v "$(PWD)"/world:/forge/world forge:1.16
+MSYS_NO_PATHCONV=1  docker run -p 25565:25565 -p 24454:24454/udp -v "$(PWD)"/world:/forge/world forge:1.16
 ```
 
-### 1.17
+### 1.18
 
 ```sh
-docker build -t forge:1.17 -f 1.17.Dockerfile .
+docker build -t forge:1.18 -f 1.18.Dockerfile .
 ```
 
 Run:
 ```sh
-docker run -p 25565:25565 -p 24454:24454/udp -v "$(PWD)"/world:/forge/world forge:1.17
+MSYS_NO_PATHCONV=1 docker run -p 25565:25565 -p 24454:24454/udp -v "$(PWD)"/world:/forge/world forge:1.18
 ```
