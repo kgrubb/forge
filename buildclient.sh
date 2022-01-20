@@ -11,4 +11,6 @@ cp -r "$1"/src/mods release
 cp -r "$1"/client/README.txt release
 cp -r "$1"/client/OptiFine* release/mods
 
-zip --junk-paths thecycle.keligrubb.com.zip release
+cd release || exit 1
+zip -r thecycle.keligrubb.com.zip ./*
+cd ~- || exit 1
