@@ -37,3 +37,9 @@ Run:
 ```sh
 MSYS_NO_PATHCONV=1 docker run -p 25565:25565 -p 24454:24454/udp -v "$(PWD)"/world:/forge/world forge:1.18
 ```
+
+## Pushing a Client Release
+
+```sh
+git tag -a thecycle-2.0.5 -m "release 2.0.5" && git push --tags
+```
