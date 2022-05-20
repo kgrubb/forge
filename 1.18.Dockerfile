@@ -1,6 +1,6 @@
 FROM eclipse-temurin:17-jdk-focal
 
-ENV INSTALLER="forge-1.18.1-39.0.40-installer.jar"
+ENV INSTALLER="forge-1.18.2-40.1.0-installer.jar"
 
 COPY ./1.18/"$INSTALLER" /
 
