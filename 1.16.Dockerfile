@@ -10,4 +10,4 @@ COPY 1.16/src /forge
 
 WORKDIR /forge
 
-CMD [ "java","-server", "-Xmx4G", "-jar", "forge-1.16.5-36.2.39.jar", "nogui"]
+CMD [ "./run.sh"]
