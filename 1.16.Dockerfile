@@ -1,15 +1,13 @@
-FROM eclipse-temurin:11-jdk-focal
+FROM eclipse-temurin:11-jdk-jammy
 
-ENV INSTALLER="forge-1.16.5-36.2.35-installer.jar"
-
-COPY ./1.16/"$INSTALLER" /
+COPY ./1.16/"*.jar" /
 
 RUN mkdir -p /forge \
-  && java -jar "$INSTALLER" --installServer /forge \
-  && rm "$INSTALLER" "$INSTALLER".log
+  && java -jar forge*.jar --installServer /forge \
+  && rm ./*.jar ./*.jar.log
 
 COPY 1.16/src /forge
 
 WORKDIR /forge
 
-CMD [ "java","-server", "-Xmx4G", "-jar", "forge-1.16.5-36.2.35.jar", "nogui"]
+CMD [ "java","-server", "-Xmx4G", "-jar", "forge-1.16.5-36.2.39.jar", "nogui"]

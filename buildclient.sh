@@ -1,16 +1,17 @@
 #!/bin/bash
 
-if [ -d release ]; then
-  rm -r release
+if [ -d release/"$1" ]; then
+  rm -r release/"$1"
 fi
-mkdir release
+mkdir -p release
+mkdir release/"$1"
 
-cp -r "$1"/*.jar release
-cp -r "$1"/src/config release
-cp -r "$1"/src/mods release
-cp -r "$1"/client/README.txt release
-cp -r "$1"/client/OptiFine* release/mods
+cp -r "$1"/*.jar release/"$1"
+cp -r "$1"/src/config release/"$1"
+cp -r "$1"/src/mods release/"$1"
+cp -r "$1"/client/README.txt release/"$1"
+cp -r "$1"/client/OptiFine* release/"$1"/mods
 
-cd release || exit 1
-zip -r thecycle.keligrubb.com.zip ./*
+cd release/"$1" || exit 1
+zip -r "$1"-thecycle.keligrubb.com.zip ./*
 cd ~- || exit 1

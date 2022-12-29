@@ -1,14 +1,12 @@
-FROM eclipse-temurin:17-jdk-focal
+FROM eclipse-temurin:17-jdk-jammy
 
-ENV INSTALLER="forge-1.18.2-40.1.0-installer.jar"
-
-COPY ./1.18/"$INSTALLER" /
+COPY ./1.19/"*.jar" /
 
 RUN mkdir -p /forge \
-  && java -jar "$INSTALLER" --installServer /forge \
-  && rm "$INSTALLER" "$INSTALLER".log
+  && java -jar forge*.jar --installServer /forge \
+  && rm ./*.jar ./*.jar.log
 
-COPY 1.18/src /forge
+COPY 1.19/src /forge
 
 WORKDIR /forge
 

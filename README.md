@@ -27,15 +27,15 @@ Run:
 MSYS_NO_PATHCONV=1  docker run -p 25565:25565 -p 24454:24454/udp -v "$(PWD)"/world:/forge/world forge:1.16
 ```
 
-### 1.18
+### 1.19
 
 ```sh
-docker build -t forge:1.18 -f 1.18.Dockerfile .
+docker build -t forge:1.19 -f 1.19.Dockerfile .
 ```
 
 Run:
 ```sh
-MSYS_NO_PATHCONV=1 docker run -p 25565:25565 -p 24454:24454/udp -v "$(PWD)"/world:/forge/world forge:1.18
+MSYS_NO_PATHCONV=1 docker run -p 25565:25565 -p 24454:24454/udp -v "$(PWD)"/world:/forge/world forge:1.19
 ```
 
 ## Pushing a Client Release
