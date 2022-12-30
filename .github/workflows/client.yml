@@ -7,11 +7,27 @@ on:
   workflow_dispatch: {}
 
 jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Create ${{ github.ref }} Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ github.ref }}
+        release_name: ${{ github.ref }}
+        draft: false
+        prerelease: false
+    outputs:
+      upload_url: ${{ steps.create_release.outputs.upload_url }}
   build:
     runs-on: ubuntu-latest
     strategy:
       matrix:
         version: [1.16, 1.19]
+    needs: release
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -20,7 +36,7 @@ jobs:
         run: |
           ./buildclient.sh ${{ matrix.version }}
 
-      - name: Create Release
+      - name: Create ${{ github.ref }} Release
         id: create_release
         uses: actions/create-release@v1
         env:
@@ -37,7 +53,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          upload_url: ${{ needs.release.outputs.upload_url }}
           asset_path: ./release/${{ matrix.version }}/${{ matrix.version }}-thecycle.keligrubb.com.zip
           asset_name: ${{ matrix.version }}-thecycle.keligrubb.com.zip
           asset_content_type: application/zip
