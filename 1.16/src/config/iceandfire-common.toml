@@ -237,7 +237,7 @@
 		#Range: 1 ~ 10000
 		"Death Worm Spawn Weight" = 30
 		#True if deathworms are allowed to spawn
-		"Spawn Death Worms" = true
+		"Spawn Death Worms" = false
 
 	[Mobs.Sirens]
 		#True if siren islands are allowed to spawn

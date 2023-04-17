@@ -9,8 +9,7 @@ mkdir release/"$1"
 cp -r "$1"/*.jar release/"$1"
 cp -r "$1"/src/config release/"$1"
 cp -r "$1"/src/mods release/"$1"
-cp -r "$1"/client/README.txt release/"$1"
-cp -r "$1"/client/OptiFine* release/"$1"/mods
+cp -r "$1"/client/* release/"$1"
 
 cd release/"$1" || exit 1
 zip -r "$1"-thecycle.keligrubb.com.zip ./*
